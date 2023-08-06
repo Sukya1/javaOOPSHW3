@@ -6,17 +6,17 @@ public class Book {
     // Creates a new Book
     public Book(String bookTitle) {
         title = bookTitle;
-        borrowed = False;
+        borrowed = false;
     }
    
     // Marks the book as rented
     public void borrowed() {
-        borrowed = !borrowed
+        borrowed = !borrowed;
     }
    
     // Marks the book as not rented
     public void returned() {
-    	borrowed = !borrowed
+    	borrowed = !borrowed;
     }
    
     // Returns true if the book is rented, false otherwise
@@ -28,7 +28,9 @@ public class Book {
     public String getTitle() {
         return title;
     }
-    
+    private void rented() {
+        borrowed = !borrowed;
+    }
 
     public static void main(String[] arguments) {
         // Small test of the Book class

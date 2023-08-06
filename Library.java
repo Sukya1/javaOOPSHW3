@@ -1,4 +1,3 @@
-import java.awt.print.Book;
 import java.util.ArrayList;
 
 public class Library {
@@ -10,9 +9,10 @@ public class Library {
 	public Library(String location) {
 		this.location = location;
 		openingHours = "Mon - Fri 9am - 5pm";
+		books = new ArrayList<>();
 	}
 	
-	public void addBook(String book) {
+	public void addBook(Book book) {
 		books.add(book);
 	}
 	public void printAddress() {
@@ -22,7 +22,7 @@ public class Library {
 		System.out.println(openingHours);
 	}
 	public void borrowBook(String book) {
-		for (int i = 0; i < books.size(; i++)) {
+		for (int i = 0; i < books.size(); i++) {
 			if (books.get(i).getTitle().equals(book) && !books.get(i).isBorrowed()) {
 				books.get(i).borrowed();
 			}
@@ -30,16 +30,16 @@ public class Library {
 	}
 	
 	public void printAvailableBooks() {
-		for (int i = 0; i < books.size(; i++)) {
+		for (int i = 0; i < books.size(); i++) {
 			if (!books.get(i).isBorrowed()) {
-				System.out.println(books.get(i));
+				System.out.println(books.get(i).getTitle());
 			}
 		}
 	}
 	
 	public void returnBook(String book) {
-		for (int i = 0; i < books.size(; i++)) {
-			if (books.get(i).getTitle().equals(book)) {
+		for (int i = 0; i < books.size(); i++) {
+			if (books.get(i).getTitle().equals(book) && books.get(i).isBorrowed()) {
 				books.get(i).returned();
 			}
 		}
